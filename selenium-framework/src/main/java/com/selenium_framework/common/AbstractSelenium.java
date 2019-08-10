@@ -1,7 +1,5 @@
 package com.selenium_framework.common;
 
-
-//all imports should be added from here
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,23 +12,22 @@ import java.net.URLDecoder;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 
+@Listeners(FrameworkListeners.class)
 public class AbstractSelenium 
 {
-	@BeforeTest
+	/*@BeforeTest
 	public void callCreateWebDriverInstanceMethod()
 	{
 		WebDriverFactory.createWebDriverInstance();
-	}
+	}*/
+	
 
 	@DataProvider(name="LoginData") //r2 
 	public String [][] getLoginData() //r1  2d array ret
 	{
-		String myData[][] = { 
-					{ "admin", "admin" }, 
-					{ "Maithili Ashok Raut", "sraut12345" }, 
-					{ "Amit", "Amit" } 
-				    };
+		String myData[][] = { { "admin", "admin" }, { "Maithili Ashok Raut", "sraut12345" }, { "Amit", "Amit" } };
 		return myData;
 
 	}
@@ -38,13 +35,12 @@ public class AbstractSelenium
 	@DataProvider(name = "ExcelData")
 	public String[][] getExcelData(Method m) throws Exception 
 	{ 
-		                                                        //dynamic method name/sheet name reflect 
+		                                                         
 System.out.println("*****************Running method name is - "+m.getName());
 		Class<?> cls =m.getDeclaringClass();
 		return ExcelReader.getExcelTableArray(getFilePath(cls),	m.getName());
 
 	}
-	// cheche=buffer=mem=ram
 
 	@DataProvider(name = "CSVData")
 	public String[][] getCSVData() {
@@ -78,7 +74,6 @@ System.out.println("*****************Running method name is - "+m.getName());
 		} 
 		    catch (UnsupportedEncodingException e) 
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		StringBuffer strFilePath = new StringBuffer();
@@ -86,7 +81,6 @@ System.out.println("*****************Running method name is - "+m.getName());
 		strFilePath.append(cls.getName().replace(".","/"));
 		strFilePath.append(".xlsx");
 		System.out.println("Class path is - "+strFilePath);
-		//return strFilePath.toString();
 		return strSourceClassName.replace(".class", ".xlsx");
 	}
 
