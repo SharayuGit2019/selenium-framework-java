@@ -1,5 +1,7 @@
 package com.selenium_framework.common;
 
+
+//all imports should be added from here
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -24,7 +26,11 @@ public class AbstractSelenium
 	@DataProvider(name="LoginData") //r2 
 	public String [][] getLoginData() //r1  2d array ret
 	{
-		String myData[][] = { { "admin", "admin" }, { "Maithili Ashok Raut", "sraut12345" }, { "Amit", "Amit" } };
+		String myData[][] = { 
+					{ "admin", "admin" }, 
+					{ "Maithili Ashok Raut", "sraut12345" }, 
+					{ "Amit", "Amit" } 
+				    };
 		return myData;
 
 	}
