@@ -36,7 +36,7 @@ public class AbstractSelenium
 	public String[][] getExcelData(Method m) throws Exception 
 	{ 
 		                                                         
-System.out.println("*****************Running method name is - "+m.getName());
+        System.out.println("*****************Running method name is - "+m.getName());
 		Class<?> cls =m.getDeclaringClass();
 		return ExcelReader.getExcelTableArray(getFilePath(cls),	m.getName());
 
