@@ -24,7 +24,6 @@ public class ExcelReader
 		String[][] tabArray = null;
 		
 	   try{
-
 		   System.out.println("*************** getExcelTableArray - File path - "+FilePath);
 
 		   FileInputStream ExcelFile = new FileInputStream(FilePath);
@@ -45,15 +44,12 @@ public class ExcelReader
 		   {
 
 			   for (int intColCounter=0;intColCounter<totalCols;intColCounter++)
-
 			   {
-
 				   Cell = ExcelWSheet.getRow(intRowCounter).getCell(intColCounter);
 
-					  String CellData = Cell.getStringCellValue();
+				   String CellData = Cell.getStringCellValue();
 
 				   tabArray[intRowCounter][intColCounter]=CellData;
-
 			   }
 		   }
 		}

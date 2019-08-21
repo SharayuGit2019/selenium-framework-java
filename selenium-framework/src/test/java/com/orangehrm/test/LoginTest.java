@@ -3,7 +3,6 @@ package com.orangehrm.test;
 import org.testng.annotations.Test;
 
 import com.selenium_framework.common.AbstractSelenium;
-import com.selenium_framework.pages.HomePage;
 import com.selenium_framework.pages.LoginPage;
 
 public class LoginTest extends AbstractSelenium
