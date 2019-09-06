@@ -19,7 +19,7 @@ public class LoginTest extends AbstractSelenium
     	//hp.verifyAdminLinkisgettingDisplayed();
     }
 
-	@Test(dataProvider= "ExcelData")
+	/*@Test(dataProvider= "ExcelData")
     public void verifyAdminLoginSuc1(String  strUserName , String strPassword)                 
     {
     	LoginPage lp = new LoginPage();
@@ -29,6 +29,6 @@ public class LoginTest extends AbstractSelenium
     
     	//HomePage hp =new HomePage();
     	//hp.verifyAdminLinkisgettingDisplayed();
-    }
+    }*/
 
 }

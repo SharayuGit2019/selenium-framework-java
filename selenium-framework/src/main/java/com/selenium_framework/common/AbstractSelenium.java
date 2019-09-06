@@ -14,6 +14,8 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 
+import sun.security.action.GetLongAction;
+
 @Listeners(FrameworkListeners.class)
 public class AbstractSelenium 
 {
@@ -24,15 +26,17 @@ public class AbstractSelenium
 	}*/
 	
 
-	@DataProvider(name="LoginData") //r2 
-	public String [][] getLoginData() //r1  2d array ret
+
+	@DataProvider(name="LoginData",parallel=true) //r2 
+	public String [][] getData() //r1  2d array ret
 	{
+		System.out.println("I am in Plain login data");
 		String myData[][] = { { "admin", "admin" }, { "Maithili Ashok Raut", "sraut12345" }, { "Amit", "Amit" } };
 		return myData;
 
 	}
-
-	@DataProvider(name = "ExcelData")
+	
+	@DataProvider(name = "ExcelData", parallel=true)
 	public String[][] getExcelData(Method m) throws Exception 
 	{ 
 		                                                         

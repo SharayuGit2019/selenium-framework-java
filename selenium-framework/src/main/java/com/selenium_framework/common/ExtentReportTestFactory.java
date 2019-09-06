@@ -33,7 +33,7 @@ public class ExtentReportTestFactory
 				
 	}
 	
-	public static ExtentTest getModule(String className)
+	public static ExtentTest getParentTest(String className)
 	{
 		if(!moduleMap.isEmpty() && moduleMap.containsKey(className))
 		{
@@ -46,8 +46,12 @@ public class ExtentReportTestFactory
 	
 	public static void createNewTest(IInvokedMethod m)
 	{
-		ExtentTest tempTest =getModule(m.getTestResult().getInstance().getClass().getSimpleName()).createNode(m.getTestMethod().getMethodName()); 
-		extentTest.set(tempTest);
+		ExtentTest parentTest =getParentTest(m.getTestResult().getInstance().getClass().getSimpleName());
+		
+		ExtentTest childTest=parentTest.createNode(m.getTestMethod().getMethodName()); 
+		
+		extentTest.set(childTest);
+		
 		for(String group:m.getTestMethod().getGroups())
 			extentTest.get().assignCategory(group);
 	}
